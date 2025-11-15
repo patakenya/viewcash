@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="ViewCash Africa - Earn KES 10 per view by sharing ads on WhatsApp, Facebook, Instagram, TikTok, and X (Twitter). Join Africa's #1 social media earning platform." />
+  <meta name="keywords" content="earn money online Kenya, make money WhatsApp, KES 10 per view, ViewCash Africa, social media earning" />
+  <meta name="author" content="ViewCash Africa" />
+  <title>ViewCash Africa | Earn KES 10 Per View on Social Media</title>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN (via jsDelivr) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'primary': '#6C1D45',          // Deep Maroon
+            'accent': '#F59E0B',           // Amber
+            'accent2': '#10B981',          // Emerald
+            'accent3': '#8B5CF6',          // Violet
+            'accent4': '#EC4899',          // Pink
+            'dark-text': '#1F2937',
+            'gray-text': '#6B7280',
+            'light-bg': '#F9FAFB',
+            'medium-bg': '#F3F4F6',
+            'dark-bg': '#111827',
+            'light-border': '#E5E7EB',
+            'primary-button-text': '#FFFFFF',
+            'primary-button-hover-bg': '#5A1739',
+          },
+          borderRadius: {
+            'button': '0.75rem',
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out infinite 3s',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --font-family-heading: 'Poppins', sans-serif;
+      --dark-text-color: #1F2937;
+      --gray-text-color: #6B7280;
+      --primary-color: #6C1D45;
+      --accent-color: #F59E0B;
+      --accent2-color: #10B981;
+      --accent3-color: #8B5CF6;
+      --accent4-color: #EC4899;
+      --light-background-color: #F9FAFB;
+      --medium-background-color: #F3F4F6;
+      --dark-background-color: #111827;
+      --light-border-color: #E5E7EB;
+      --primary-button-text-color: #FFFFFF;
+      --primary-button-hover-bg-color: #5A1739;
+      --button-rounded-radius: 0.75rem;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delayed { animation: float 6s ease-in-out infinite 3s; }
+
+    .bg-gradient-primary { background: linear-gradient(to bottom right, var(--primary-color), var(--accent4-color)); }
+  </style>
+</head>
+<body class="font-body text-[var(--dark-text-color)] bg-white">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2">
+          <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/6e97cd01-d15b-42f3-4de4-9a734f3e6c00/public" alt="ViewCash Africa Logo" class="h-16">
+        
+        </a>
+
+        <nav class="hidden lg:flex items-center space-x-8">
+            <a href="index.html" class="text-[var(--primary-color)] font-semibold">Home</a>
+            <a href="about.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">About Us</a>
+            <a href="how-it-works.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">How It Works</a>
+            <a href="faq.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">FAQ</a>
+            <a href="contact.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">Contact Us</a>
+            <a href="register.html" class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-[var(--button-rounded-radius)] hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Register Now</a>
+          </nav>
+  
+          <button id="mobile-menu-toggle" class="lg:hidden text-[var(--dark-text-color)] focus:outline-none p-2">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+  
+        <nav id="mobile-menu" class="hidden lg:hidden py-4 border-t border-[var(--light-border-color)] mt-2">
+          <div class="flex flex-col space-y-4">
+            <a href="index.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">Home</a>
+            <a href="about.html" class="text-[var(--primary-color)] font-semibold py-2">About Us</a>
+            <a href="how-it-works.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">How It Works</a>
+            <a href="faq.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">FAQ</a>
+            <a href="contact.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">Contact Us</a>
+            <a href="register.html" class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-[var(--button-rounded-radius)] hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 font-semibold text-center shadow-lg">Register Now</a>
+          </div>
+        </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-[var(--light-background-color)] to-white py-16 sm:py-24 lg:py-32 overflow-hidden" id="hero">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-[var(--accent-color)] rounded-full filter blur-3xl opacity-10 animate-float"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[var(--primary-color)] rounded-full filter blur-3xl opacity-10 animate-float-delayed"></div>
+
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="text-center lg:text-left z-10">
+          <div class="inline-block bg-[var(--accent2-color)] text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
+            <i class="fas fa-star mr-2"></i>Africa's #1 Social Media Earning Platform
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight">
+            Get Paid for Your
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent4-color)]">Social Media Influence!</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-[var(--gray-text-color)] mb-8 leading-relaxed">
+            Turn your WhatsApp status, Facebook likes, Instagram engagement, TikTok views, and X interactions into <span class="font-bold text-[var(--accent2-color)]">real cash</span>. Start earning <span class="font-bold text-[var(--primary-color)]">KES 10 per view</span> today!
+          </p>
+
+          <!-- Key Stats -->
+          <div class="grid grid-cols-3 gap-4 mb-8">
+            <div class="bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="text-2xl sm:text-3xl font-bold text-[var(--accent2-color)] mb-1">KES 10</div>
+              <div class="text-xs sm:text-sm text-[var(--gray-text-color)]">Per View</div>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="text-2xl sm:text-3xl font-bold text-[var(--primary-color)] mb-1">Daily</div>
+              <div class="text-xs sm:text-sm text-[var(--gray-text-color)]">Withdrawals</div>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="text-2xl sm:text-3xl font-bold text-[var(--accent-color)] mb-1">Instant</div>
+              <div class="text-xs sm:text-sm text-[var(--gray-text-color)]">Verification</div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a href="#register" class="bg-[var(--primary-color)] text-white px-8 py-4 rounded-[var(--button-rounded-radius)] hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 inline-flex items-center justify-center group">
+              <i class="fas fa-rocket mr-2 group-hover:animate-bounce"></i> Start Earning Now
+            </a>
+            <a href="#how-it-works" class="bg-white text-[var(--primary-color)] border-2 border-[var(--primary-color)] px-8 py-4 rounded-[var(--button-rounded-radius)] hover:bg-[var(--primary-color)] hover:text-white transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl inline-flex items-center justify-center">
+              <i class="fas fa-play-circle mr-2"></i> How It Works
+            </a>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="mt-8 flex flex-wrap items-center gap-6 justify-center lg:justify-start text-sm text-[var(--gray-text-color)]">
+            <div class="flex items-center"><i class="fas fa-shield-check text-[var(--accent2-color)] mr-2 text-lg"></i> Secure Platform</div>
+            <div class="flex items-center"><i class="fas fa-clock text-[var(--accent4-color)] mr-2 text-lg"></i> Instant Payouts</div>
+            <div class="flex items-center"><i class="fas fa-users text-[var(--accent-color)] mr-2 text-lg"></i> Growing Community</div>
+          </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="relative z-10">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+            <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/08979b8b-ce33-4923-72a8-03d97e26ba00/public" alt="Influencer earning from social media" class="w-full h-auto">
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--primary-color)] via-transparent to-transparent opacity-30"></div>
+          </div>
+
+          <!-- Floating Cards -->
+          <div class="absolute -top-6 -left-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-110 transition-transform duration-300 hidden sm:block">
+            <div class="flex items-center space-x-3">
+              <div class="bg-[var(--accent2-color)] rounded-full p-3"><i class="fas fa-money-bill-wave text-white text-xl"></i></div>
+              <div><div class="text-2xl font-bold text-[var(--accent2-color)]">KES 1,500</div><div class="text-xs text-[var(--gray-text-color)]">Today's Earnings</div></div>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4 transform hover:scale-110 transition-transform duration-300 hidden sm:block">
+            <div class="flex items-center space-x-3">
+              <div class="bg-[var(--primary-color)] rounded-full p-3"><i class="fas fa-eye text-white text-xl"></i></div>
+              <div><div class="text-2xl font-bold text-[var(--primary-color)]">150+</div><div class="text-xs text-[var(--gray-text-color)]">Views Today</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms Section -->
+  <section class="bg-white py-16 sm:py-20 lg:py-24" id="platforms">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-4">
+          Monetize <span class="text-[var(--primary-color)]">All Your Platforms</span>
+        </h2>
+        <p class="text-lg text-[var(--gray-text-color)] max-w-3xl mx-auto">
+          Turn every social media interaction into cash. Share ads across all your favorite platforms and watch your earnings grow!
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto mb-12">
+        <!-- WhatsApp -->
+        <div class="bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 group">
+          <div class="mb-4"><i class="fab fa-whatsapp text-white text-6xl group-hover:scale-110 transition-transform duration-300"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">WhatsApp</h3>
+          <p class="text-white text-sm opacity-90">Status Updates</p>
+        </div>
+        <!-- Facebook -->
+        <div class="bg-gradient-to-br from-[#1877F2] to-[#0C63D4] rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 group">
+          <div class="mb-4"><i class="fab fa-facebook text-white text-6xl group-hover:scale-110 transition-transform duration-300"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">Facebook</h3>
+          <p class="text-white text-sm opacity-90">Posts & Likes</p>
+        </div>
+        <!-- Instagram -->
+        <div class="bg-gradient-to-br from-[#E4405F] via-[#D93177] to-[#C13584] rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 group">
+          <div class="mb-4"><i class="fab fa-instagram text-white text-6xl group-hover:scale-110 transition-transform duration-300"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">Instagram</h3>
+          <p class="text-white text-sm opacity-90">Stories & Posts</p>
+        </div>
+        <!-- TikTok -->
+        <div class="bg-gradient-to-br from-[#000000] to-[#333333] rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 group">
+          <div class="mb-4"><i class="fab fa-tiktok text-white text-6xl group-hover:scale-110 transition-transform duration-300"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">TikTok</h3>
+          <p class="text-white text-sm opacity-90">Videos & Views</p>
+        </div>
+        <!-- X (Twitter) -->
+        <div class="bg-gradient-to-br from-[#000000] to-[#1DA1F2] rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 group">
+          <div class="mb-4"><i class="fab fa-x-twitter text-white text-6xl group-hover:scale-110 transition-transform duration-300"></i></div>
+          <h3 class="text-xl font-bold text-white mb-2">X (Twitter)</h3>
+          <p class="text-white text-sm opacity-90">Tweets & Retweets</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-xl p-6 text-center shadow-lg border border-[var(--light-border-color)]">
+          <div class="text-4xl font-bold text-[var(--primary-color)] mb-2">5+</div>
+          <div class="text-[var(--gray-text-color)] font-medium">Platforms</div>
+        </div>
+        <div class="bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-xl p-6 text-center shadow-lg border border-[var(--light-border-color)]">
+          <div class="text-4xl font-bold text-[var(--accent2-color)] mb-2">24/7</div>
+          <div class="text-[var(--gray-text-color)] font-medium">Support</div>
+        </div>
+        <div class="bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-xl p-6 text-center shadow-lg border border-[var(--light-border-color)]">
+          <div class="text-4xl font-bold text-[var(--accent4-color)] mb-2">100%</div>
+          <div class="text-[var(--gray-text-color)] font-medium">Transparent</div>
+        </div>
+        <div class="bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-xl p-6 text-center shadow-lg border border-[var(--light-border-color)]">
+          <div class="text-4xl font-bold text-[var(--accent-color)] mb-2">KES 10</div>
+          <div class="text-[var(--gray-text-color)] font-medium">Per View</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative bg-gradient-primary py-20 sm:py-24 lg:py-32 overflow-hidden" id="cta">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10">
+      <div class="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-white bg-opacity-20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-semibold mb-6">
+          <i class="fas fa-rocket mr-2"></i>Start Your Earning Journey Today
+        </div>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+          Ready to Turn Your Social Media into Cash?
+        </h2>
+        <p class="text-xl sm:text-2xl text-white mb-10 opacity-95">
+          Join ViewCash Africa now and start earning <span class="font-bold">KES 10 per view</span>. Your influence has value—let's monetize it together!
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <a href="#register" class="bg-white text-[var(--primary-color)] px-10 py-5 rounded-[var(--button-rounded-radius)] hover:bg-gray-100 transition-all duration-300 font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 inline-flex items-center justify-center group w-full sm:w-auto">
+            <i class="fas fa-user-plus mr-3 text-xl group-hover:scale-110 transition-transform"></i>
+            <span>Register Now - KES 1,000</span>
+          </a>
+          <a href="#how-it-works" class="bg-transparent text-white border-2 border-white px-10 py-5 rounded-[var(--button-rounded-radius)] hover:bg-white hover:text-[var(--primary-color)] transition-all duration-300 font-bold text-lg shadow-xl inline-flex items-center justify-center w-full sm:w-auto">
+            <i class="fas fa-info-circle mr-3 text-xl"></i>
+            <span>Learn More</span>
+          </a>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+            <div class="text-white text-4xl mb-2"><i class="fas fa-shield-check"></i></div>
+            <div class="text-white font-semibold">Secure & Verified</div>
+          </div>
+          <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+            <div class="text-white text-4xl mb-2"><i class="fas fa-clock"></i></div>
+            <div class="text-white font-semibold">Daily Payouts</div>
+          </div>
+          <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+            <div class="text-white text-4xl mb-2"><i class="fas fa-thumbs-up"></i></div>
+            <div class="text-white font-semibold">Easy to Use</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave -->
+    <div class="absolute bottom-0 left-0 w-full">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+        <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="bg-gradient-to-br from-[var(--light-background-color)] via-white to-[var(--medium-background-color)] py-16 sm:py-20 lg:py-24" id="why-choose">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-4">
+          Why Choose <span class="text-[var(--primary-color)]">ViewCash Africa?</span>
+        </h2>
+        <p class="text-lg text-[var(--gray-text-color)] max-w-3xl mx-auto">
+          Join thousands of Kenyans already monetizing their social media presence.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div class="relative order-2 lg:order-1">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+            <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/648d3d3c-6c1a-40d4-3531-dbfb8dd13500/publicContain" alt="Influencer recording video" class="w-full h-auto">
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-2xl p-6 hidden sm:block transform hover:scale-105 transition-transform duration-300">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-[var(--accent2-color)] mb-1">KES 10</div>
+              <div class="text-sm text-[var(--gray-text-color)]">Per View</div>
+              <div class="flex justify-center mt-2 text-[var(--accent2-color)]">
+                <i class="fas fa-star text-xs"></i><i class="fas fa-star text-xs mx-1"></i><i class="fas fa-star text-xs"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6 order-1 lg:order-2">
+          <div class="flex items-start space-x-4 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent4-color)] rounded-lg flex items-center justify-center shadow-lg">
+              <i class="fas fa-money-bill-wave text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-2">Daily Earnings</h3>
+              <p class="text-[var(--gray-text-color)]">Withdraw every day. No minimum threshold!</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--accent2-color)] to-[var(--accent-color)] rounded-lg flex items-center justify-center shadow-lg">
+              <i class="fas fa-bolt text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-2">Instant Verification</h3>
+              <p class="text-[var(--gray-text-color)]">Start earning within minutes of registration.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--accent4-color)] to-[var(--primary-color)] rounded-lg flex items-center justify-center shadow-lg">
+              <i class="fas fa-shield-check text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-2">No Hidden Fees</h3>
+              <p class="text-[var(--gray-text-color)]">100% transparent. What you earn is yours.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--accent-color)] to-[var(--accent3-color)] rounded-lg flex items-center justify-center shadow-lg">
+              <i class="fas fa-users text-white text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-heading font-bold mb-2">For Everyone</h3>
+              <p class="text-[var(--gray-text-color)]">No follower minimum. Everyone earns!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="bg-white py-16 sm:py-20 lg:py-24" id="how-it-works">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-4">
+          How <span class="text-[var(--primary-color)]">ViewCash</span> Works
+        </h2>
+        <p class="text-lg text-[var(--gray-text-color)] max-w-2xl mx-auto">
+          Start earning in just 3 simple steps. Fast, secure, and for everyone!
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div class="relative group">
+          <div class="bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[var(--light-border-color)]">
+            <div class="absolute -top-6 left-8 bg-[var(--primary-color)] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg">1</div>
+            <div class="mt-6 mb-6 text-center">
+              <div class="inline-flex items-center justify-center w-20 h-20 bg-[var(--primary-color)] rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-user-plus text-white text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-center mb-3">Register & Verify</h3>
+            <p class="text-[var(--gray-text-color)] text-center">Pay <span class="font-bold text-[var(--primary-color)]">KES 1,000</span> one-time fee and get instant access.</p>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <div class="bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[var(--light-border-color)]">
+            <div class="absolute -top-6 left-8 bg-[var(--accent2-color)] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg">2</div>
+            <div class="mt-6 mb-6 text-center">
+              <div class="inline-flex items-center justify-center w-20 h-20 bg-[var(--accent2-color)] rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-share-nodes text-white text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-center mb-3">Share & Engage</h3>
+            <p class="text-[var(--gray-text-color)] text-center">Share ads on WhatsApp, Facebook, Instagram, TikTok, or X.</p>
+          </div>
+        </div>
+
+        <div class="relative group sm:col-span-2 lg:col-span-1 max-w-md mx-auto sm:max-w-none">
+          <div class="bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-[var(--light-border-color)]">
+            <div class="absolute -top-6 left-8 bg-[var(--accent-color)] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-lg">3</div>
+            <div class="mt-6 mb-6 text-center">
+              <div class="inline-flex items-center justify-center w-20 h-20 bg-[var(--accent-color)] rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <i class="fas fa-wallet text-white text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-center mb-3">Earn & Withdraw</h3>
+            <p class="text-[var(--gray-text-color)] text-center">Earn <span class="font-bold text-[var(--accent2-color)]">KES 10 per view</span> and withdraw daily!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-16">
+        <a href="#register" class="inline-flex items-center bg-[var(--primary-color)] text-white px-8 py-4 rounded-[var(--button-rounded-radius)] hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 group">
+          <span>Get Started Now</span>
+          <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--dark-background-color)] text-white py-12 sm:py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="/" class="inline-block mb-6">
+            <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/6e97cd01-d15b-42f3-4de4-9a734f3e6c00/public" alt="ViewCash Logo" class="h-24">
+          </a>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            Africa's most rewarding digital advertising network. Turn your social media influence into real cash.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div>
+            <h3 class="text-lg font-heading font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Home</a></li>
+              <li><a href="about.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">About Us</a></li>
+              <li><a href="how-it-works.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">How It Works</a></li>
+              <li><a href="faq.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">FAQ</a></li>
+              <li><a href="contact.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Contact Us</a></li>
+            </ul>
+          </div>
+  
+          <div>
+            <h3 class="text-lg font-heading font-bold mb-4">Account</h3>
+            <ul class="space-y-3">
+              <li><a href="register.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Register</a></li>
+              <li><a href="login.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Log In</a></li>
+              <li><a href="dashboard.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Dashboard</a></li>
+            </ul>
+          </div>
+  
+          <div>
+            <h3 class="text-lg font-heading font-bold mb-4">Legal</h3>
+            <ul class="space-y-3">
+              <li><a href="privacy.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Privacy Policy</a></li>
+              <li><a href="terms.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-heading font-bold mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li><a href="/privacy" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Privacy Policy</a></li>
+            <li><a href="/terms" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8 text-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 ViewCash Africa. All rights reserved. Empowering African social media users to monetize their influence.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

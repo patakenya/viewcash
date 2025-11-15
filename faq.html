@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="FAQ - ViewCash Africa | Answers to all your questions about earning KES 10 per view, registration, withdrawals, and more. Instant payouts, no minimum." />
+  <meta name="keywords" content="ViewCash FAQ, earn KES 10 per view, M-Pesa withdrawal, social media earning Kenya, how to earn online" />
+  <meta name="author" content="ViewCash Africa" />
+  <title>FAQ | ViewCash Africa - Frequently Asked Questions</title>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'primary': '#6C1D45',
+            'accent': '#F59E0B',
+            'accent2': '#10B981',
+            'accent3': '#8B5CF6',
+            'accent4': '#EC4899',
+            'dark-text': '#1F2937',
+            'gray-text': '#6B7280',
+            'light-bg': '#F9FAFB',
+            'medium-bg': '#F3F4F6',
+            'dark-bg': '#111827',
+            'light-border': '#E5E7EB',
+            'primary-button-text': '#FFFFFF',
+            'primary-button-hover-bg': '#5A1739',
+          },
+          borderRadius: {
+            'button': '0.75rem',
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --font-family-heading: 'Poppins', sans-serif;
+      --dark-text-color: #1F2937;
+      --gray-text-color: #6B7280;
+      --primary-color: #6C1D45;
+      --accent-color: #F59E0B;
+      --accent2-color: #10B981;
+      --accent3-color: #8B5CF6;
+      --accent4-color: #EC4899;
+      --light-background-color: #F9FAFB;
+      --medium-background-color: #F3F4F6;
+      --dark-background-color: #111827;
+      --light-border-color: #E5E7EB;
+      --primary-button-text-color: #FFFFFF;
+      --primary-button-hover-bg-color: #5A1739;
+      --button-rounded-radius: 0.75rem;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+
+    .faq-item {
+      transition: all 0.4s ease;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    .faq-item .faq-question::after {
+      content: '\f078'; /* chevron-down */
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      float: right;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-question::after {
+      transform: rotate(180deg);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; height: 0; }
+      to { opacity: 1; height: auto; }
+    }
+  </style>
+</head>
+<body class="font-body text-[var(--dark-text-color)] bg-white">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center space-x-2">
+          <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/6e97cd01-d15b-42f3-4de4-9a734f3e6c00/public" alt="ViewCash Africa Logo" class="h-16">
+          
+        </a>
+
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a href="index.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">Home</a>
+          <a href="about.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">About Us</a>
+          <a href="how-it-works.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">How It Works</a>
+          <a href="faq.html" class="text-[var(--primary-color)] font-semibold">FAQ</a>
+          <a href="contact.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">Contact Us</a>
+          <a href="register.html" class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-[var(--button-rounded-radius)] hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Register Now</a>
+        </nav>
+
+        <button id="mobile-menu-toggle" class="lg:hidden text-[var(--dark-text-color)] focus:outline-none p-2">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <nav id="mobile-menu" class="hidden lg:hidden py-4 border-t border-[var(--light-border-color)] mt-2">
+        <div class="flex flex-col space-y-4">
+          <a href="index.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">Home</a>
+          <a href="about.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">About Us</a>
+          <a href="how-it-works.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">How It Works</a>
+          <a href="faq.html" class="text-[var(--primary-color)] font-semibold py-2">FAQ</a>
+          <a href="contact.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">Contact Us</a>
+          <a href="register.html" class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-[var(--button-rounded-radius)] hover:bg-[var(--primary-button-hover-bg-color)] transition-all duration-300 font-semibold text-center shadow-lg">Register Now</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-[var(--light-background-color)] to-white py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-[var(--accent-color)] rounded-full filter blur-3xl opacity-10 animate-float"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[var(--primary-color)] rounded-full filter blur-3xl opacity-10"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-block bg-[var(--accent2-color)] text-white px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
+          <i class="fas fa-question-circle mr-2"></i> Got Questions? We’ve Got Answers
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight">
+          Frequently Asked <span class="text-[var(--primary-color)]">Questions</span>
+        </h1>
+        <p class="text-xl text-[var(--gray-text-color)] mb-8 max-w-3xl mx-auto">
+          Everything you need to know about earning <strong>KES 10 per view</strong>, daily payouts, and how ViewCash works.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="py-16 sm:py-20 lg:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto space-y-6">
+        
+        <!-- FAQ Item 1 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            What is ViewCash Africa?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            ViewCash Africa is Kenya’s #1 social media monetization platform. We pay you <strong>KES 10 for every verified view</strong> when you share ads on WhatsApp, Facebook, Instagram, TikTok, or X (Twitter). No follower minimum. No experience needed. Just real cash, paid daily to your M-Pesa.
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            How much is the registration fee?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            A <strong>one-time fee of KES 1,000</strong> via M-Pesa. This activates your account instantly and gives you lifetime access. No monthly fees. No hidden charges. Ever.
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            How do I earn money?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            <ol class="list-decimal list-inside space-y-2">
+              <li>Log in to your dashboard.</li>
+              <li>Copy a personalized ad link.</li>
+              <li>Share on WhatsApp Status, Facebook, Instagram, TikTok, or X.</li>
+              <li>Earn <strong>KES 10 per verified view</strong> from Kenyan users.</li>
+              <li>Withdraw daily to M-Pesa.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            When and how do I get paid?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            <strong>Daily payouts to M-Pesa.</strong> Withdraw any amount after 6 AM. Money hits your phone in <strong>under 2 hours</strong>. No minimum. No fees. 100% of your earnings go to you.
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            Is there a minimum withdrawal?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            <strong>No.</strong> Withdraw KES 100 or KES 10,000 — anytime you want. Most users withdraw daily.
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            Do I need many followers to earn?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            <strong>No.</strong> Even with 50 contacts, you can earn KES 500–1,500 daily. Users with 300+ WhatsApp contacts earn <strong>KES 3,000–7,000 per day</strong>.
+          </div>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            How are views counted?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            Only <strong>real Kenyan users</strong> count. The ad must be on screen for <strong>5+ seconds</strong>. We use device fingerprinting and AI to block bots and duplicates. 100% fraud-proof.
+          </div>
+        </div>
+
+        <!-- FAQ Item 8 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            Can I use multiple accounts?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            <strong>No.</strong> One account per phone number. Multiple accounts lead to permanent bans and forfeiture of earnings.
+          </div>
+        </div>
+
+        <!-- FAQ Item 9 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            Is ViewCash legit and safe?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            Yes. We are registered in Kenya. Over <strong>KES 50 million paid</strong> to 50,000+ users. Bank-grade encryption. M-Pesa verified. Trusted by Kenyans since 2023.
+          </div>
+        </div>
+
+        <!-- FAQ Item 10 -->
+        <div class="faq-item bg-gradient-to-br from-[var(--light-background-color)] to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--light-border-color)]">
+          <button class="faq-question w-full text-left p-6 font-heading font-bold text-lg flex items-center justify-between focus:outline-none">
+            What if I don’t receive my money?
+          </button>
+          <div class="faq-answer hidden px-6 pb-6 text-[var(--gray-text-color)] leading-relaxed">
+            Contact support at <a href="mailto:support@viewcash.africa" class="text-[var(--primary-color)] font-bold">support@viewcash.africa</a> or call <strong>0700 000 000</strong>. We resolve 99% of issues in under 30 minutes.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[var(--light-background-color)] via-white to-[var(--medium-background-color)]">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-6">
+          What <span class="text-[var(--primary-color)]">Users Say</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-xl p-6 shadow-lg border border-[var(--light-border-color)]">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-gray-200 rounded-full mr-3"></div>
+            <div>
+              <div class="font-bold">Mercy Wanjiku</div>
+              <div class="text-sm text-[var(--gray-text-color)]">Nairobi</div>
+            </div>
+          </div>
+          <p class="text-[var(--gray-text-color)] italic">"I earned KES 4,200 in my first week just sharing on WhatsApp Status!"</p>
+          <div class="flex text-[var(--accent-color)] mt-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-lg border border-[var(--light-border-color)]">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-gray-200 rounded-full mr-3"></div>
+            <div>
+              <div class="font-bold">John Otieno</div>
+              <div class="text-sm text-[var(--gray-text-color)]">Kisumu</div>
+            </div>
+          </div>
+          <p class="text-[var(--gray-text-color)] italic">"Withdrew KES 1,800 yesterday. Hit my M-Pesa in 20 minutes. This is real!"</p>
+          <div class="flex text-[var(--accent-color)] mt-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-lg border border-[var(--light-border-color)]">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-gray-200 rounded-full mr-3"></div>
+            <div>
+              <div class="font-bold">Fatuma Ali</div>
+              <div class="text-sm text-[var(--gray-text-color)]">Mombasa</div>
+            </div>
+          </div>
+          <p class="text-[var(--gray-text-color)] italic">"No follower minimum? I started with 80 contacts and made KES 1,200 on day 1!"</p>
+          <div class="flex text-[var(--accent-color)] mt-3">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[var(--primary-color)] py-16 sm:py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+        Still Have Questions?
+      </h2>
+      <p class="text-xl text-white mb-8 max-w-2xl mx-auto opacity-90">
+        Join now and start earning <strong>KES 10 per view</strong> today.
+      </p>
+      <a href="register.html" class="inline-flex items-center bg-white text-[var(--primary-color)] px-10 py-5 rounded-[var(--button-rounded-radius)] hover:bg-gray-100 transition-all duration-300 font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:-translate-y-1">
+        Register Now - KES 1,000
+        <i class="fas fa-arrow-right ml-3"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--dark-background-color)] text-white py-12 sm:py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="index.html" class="inline-block mb-6">
+            <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/6e97cd01-d15b-42f3-4de4-9a734f3e6c00/public" alt="ViewCash Logo" class="h-24">
+          </a>
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            Africa's most rewarding digital advertising network. Turn your social media influence into real cash.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center hover:bg-[var(--primary-button-hover-bg-color)] transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-heading font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">About Us</a></li>
+            <li><a href="how-it-works.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">How It Works</a></li>
+            <li><a href="faq.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">FAQ</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-heading font-bold mb-4">Account</h3>
+          <ul class="space-y-3">
+            <li><a href="register.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Register</a></li>
+            <li><a href="login.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Log In</a></li>
+            <li><a href="dashboard.html" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-heading font-bold mb-4">Support</h3>
+          <ul class="space-y-3">
+            <li><a href="tel:+254700000000" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">0700 000 000</a></li>
+            <li><a href="mailto:support@viewcash.africa" class="text-gray-300 hover:text-[var(--primary-color)] transition-colors duration-300">support@viewcash.africa</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8 text-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 ViewCash Africa. All rights reserved. Nairobi, Kenya.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAQ Accordion Script -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        
+        // Open clicked if not active
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

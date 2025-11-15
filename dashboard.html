@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="ViewCash Africa Dashboard - Track your earnings, views, and withdraw KES 10 per view instantly to M-Pesa. Real-time stats." />
+  <meta name="keywords" content="ViewCash dashboard, earnings tracker, M-Pesa withdrawal, KES 10 per view, social media earning Kenya" />
+  <meta name="author" content="ViewCash Africa" />
+  <title>Dashboard | ViewCash Africa - Your Earnings</title>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Poppins', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'primary': '#6C1D45',
+            'accent': '#F59E0B',
+            'accent2': '#10B981',
+            'accent3': '#8B5CF6',
+            'accent4': '#EC4899',
+            'dark-text': '#1F2937',
+            'gray-text': '#6B7280',
+            'light-bg': '#F9FAFB',
+            'medium-bg': '#F3F4F6',
+            'dark-bg': '#111827',
+            'light-border': '#E5E7EB',
+            'primary-button-hover-bg': '#5A1739',
+          },
+          borderRadius: {
+            'button': '0.75rem',
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --primary-color: #6C1D45;
+      --accent-color: #F59E0B;
+      --accent2-color: #10B981;
+      --light-bg: #F9FAFB;
+      --light-border: #E5E7EB;
+      --button-rounded-radius: 0.75rem;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+
+    .stat-card {
+      transition: all 0.4s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: linear-gradient(to right, var(--accent2-color), var(--accent-color));
+      border-radius: 9999px;
+      transition: width 0.6s ease;
+    }
+
+    .withdrawal-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .withdrawal-modal.show {
+      display: flex;
+    }
+    .modal-card {
+      background: white;
+      border-radius: 1.5rem;
+      max-width: 420px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      animation: popup 0.4s ease-out;
+    }
+    @keyframes popup {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-card .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #6B7280;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="font-body text-[var(--dark-text-color)] bg-gradient-to-br from-[var(--light-bg)] to-white min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <a href="index.html" class="flex items-center space-x-2">
+          <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/6e97cd01-d15b-42f3-4de4-9a734f3e6c00/public" alt="ViewCash Africa Logo" class="h-16">
+          
+        </a>
+
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a href="index.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">Home</a>
+          <a href="dashboard.html" class="text-[var(--primary-color)] font-semibold">Dashboard</a>
+          <a href="how-it-works.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">How It Works</a>
+          <a href="contact.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium">Support</a>
+          <button onclick="logout()" class="bg-[var(--accent-color)] text-white px-6 py-3 rounded-[var(--button-rounded-radius)] hover:bg-[#D97706] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl">Log Out</button>
+        </nav>
+
+        <button id="mobile-menu-toggle" class="lg:hidden text-[var(--dark-text-color)] focus:outline-none p-2">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <nav id="mobile-menu" class="hidden lg:hidden py-4 border-t border-[var(--light-border-color)] mt-2">
+        <div class="flex flex-col space-y-4">
+          <a href="index.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">Home</a>
+          <a href="dashboard.html" class="text-[var(--primary-color)] font-semibold py-2">Dashboard</a>
+          <a href="how-it-works.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">How It Works</a>
+          <a href="contact.html" class="hover:text-[var(--primary-color)] transition-colors duration-300 font-medium py-2">Support</a>
+          <button onclick="logout()" class="bg-[var(--accent-color)] text-white px-6 py-3 rounded-[var(--button-rounded-radius)] hover:bg-[#D97706] transition-all duration-300 font-semibold text-center shadow-lg">Log Out</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dashboard Hero -->
+  <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--light-bg)] to-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold mb-4">
+          Welcome Back, <span class="text-[var(--primary-color)]">John Doe</span>!
+        </h1>
+        <p class="text-xl text-[var(--gray-text-color)]">Track your earnings, views, and withdraw instantly.</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <!-- Total Earnings -->
+        <div class="stat-card bg-white rounded-2xl p-6 shadow-xl border border-[var(--light-border-color)]">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent4-color)] rounded-lg flex items-center justify-center">
+              <i class="fas fa-wallet text-white text-2xl"></i>
+            </div>
+            <span class="text-3xl text-[var(--accent2-color)] animate-pulse">KES</span>
+          </div>
+          <div class="text-3xl font-bold text-[var(--primary-color)] mb-1">KES 4,850</div>
+          <div class="text-sm text-[var(--gray-text-color)]">Total Earnings</div>
+        </div>
+
+        <!-- Today's Views -->
+        <div class="stat-card bg-white rounded-2xl p-6 shadow-xl border border-[var(--light-border-color)]">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--accent2-color)] to-[#059669] rounded-lg flex items-center justify-center">
+              <i class="fas fa-eye text-white text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold text-[var(--accent2-color)]">+32%</span>
+          </div>
+          <div class="text-3xl font-bold text-[var(--accent2-color)] mb-1">485</div>
+          <div class="text-sm text-[var(--gray-text-color)]">Views Today</div>
+        </div>
+
+        <!-- Pending Withdrawal -->
+        <div class="stat-card bg-white rounded-2xl p-6 shadow-xl border border-[var(--light-border-color)]">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--accent-color)] to-[#D97706] rounded-lg flex items-center justify-center">
+              <i class="fas fa-clock text-white text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold text-[var(--accent-color)]">KES 1,200</span>
+          </div>
+          <div class="text-3xl font-bold text-[var(--accent-color)] mb-1">KES 1,200</div>
+          <div class="text-sm text-[var(--gray-text-color)]">Ready to Withdraw</div>
+        </div>
+
+        <!-- Total Views -->
+        <div class="stat-card bg-white rounded-2xl p-6 shadow-xl border border-[var(--light-border-color)]">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-14 h-14 bg-gradient-to-br from-[var(--accent3-color)] to-[#7C3AED] rounded-lg flex items-center justify-center">
+              <i class="fas fa-chart-line text-white text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold text-[var(--accent3-color)]">+18%</span>
+          </div>
+          <div class="text-3xl font-bold text-[var(--accent3-color)] mb-1">12,450</div>
+          <div class="text-sm text-[var(--gray-text-color)]">All-Time Views</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <button onclick="openWithdrawal()" class="bg-[var(--accent2-color)] text-white px-8 py-4 rounded-[var(--button-rounded-radius)] hover:bg-[#059669] transition-all duration-300 font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center group">
+          <i class="fas fa-money-bill-wave mr-3"></i>
+          Withdraw Now
+          <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+        </button>
+        <a href="#share" class="bg-white text-[var(--primary-color)] border-2 border-[var(--primary-color)] px-8 py-4 rounded-[var(--button-rounded-radius)] hover:bg-[var(--primary-color)] hover:text-white transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl flex items-center justify-center">
+          <i class="fas fa-share-nodes mr-3"></i>
+          Get New Ad Link
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Earnings Chart & Activity -->
+  <section class="py-12 sm:py-16 lg:py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Earnings Chart -->
+        <div class="bg-gradient-to-br from-[var(--light-bg)] to-white rounded-2xl p-6 shadow-xl border border-[var(--light-border-color)]">
+          <2025>ViewCash Africa</title>
+          <h3 class="text-2xl font-heading font-bold mb-6">Earnings This Week</h3>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-[var(--gray-text-color)]">Mon</span>
+              <div class="flex-1 mx-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-bar" style="width: 65%"></div>
+              </div>
+              <span class="text-sm font-bold text-[var(--primary-color)]">KES 650</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-[var(--gray-text-color)]">Tue</span>
+              <div class="flex-1 mx-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-bar" style="width: 80%"></div>
+              </div>
+              <span class="text-sm font-bold text-[var(--primary-color)]">KES 800</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-[var(--gray-text-color)]">Wed</span>
+              <div class="flex-1 mx-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-bar" style="width: 55%"></div>
+              </div>
+              <span class="text-sm font-bold text-[var(--primary-color)]">KES 550</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-[var(--gray-text-color)]">Thu</span>
+              <div class="flex-1 mx-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
+              <span class="text-sm font-bold text-[var(--primary-color)]">KES 900</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-[var(--gray-text-color)]">Fri</span>
+              <div class="flex-1 mx-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-bar" style="width: 75%"></div>
+              </div>
+              <span class="text-sm font-bold text-[var(--primary-color)]">KES 750</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-[var(--gray-text-color)]">Sat</span>
+              <div class="flex-1 mx-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-bar" style="width: 85%"></div>
+              </div>
+              <span class="text-sm font-bold text-[var(--primary-color)]">KES 850</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-[var(--gray-text-color)]">Sun</span>
+              <div class="flex-1 mx-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+              <span class="text-sm font-bold text-[var(--primary-color)]">KES 700</span>
+            </div>
+          </div>
+          <div class="mt-6 text-center">
+            <p class="text-lg font-bold text-[var(--accent2-color)]">Total: KES 5,200</p>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="bg-gradient-to-br from-[var(--light-bg)] to-white rounded-2xl p-6 shadow-xl border border-[var(--light-border-color)]">
+          <h3 class="text-2xl font-heading font-bold mb-6">Recent Activity</h3>
+          <div class="space-y-4 max-h-96 overflow-y-auto">
+            <div class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow">
+              <div class="w-10 h-10 bg-[var(--accent2-color)] rounded-full flex items-center justify-center text-white">
+                <i class="fas fa-eye"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold">+48 views</p>
+                <p class="text-xs text-[var(--gray-text-color)]">WhatsApp Status • 2 mins ago</p>
+              </div>
+              <p class="font-bold text-[var(--accent2-color)]">+KES 480</p>
+            </div>
+            <div class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow">
+              <div class="w-10 h-10 bg-[var(--primary-color)] rounded-full flex items-center justify-center text-white">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold">Withdrawal Processed</p>
+                <p class="text-xs text-[var(--gray-text-color)]">M-Pesa • 1 hour ago</p>
+              </div>
+              <p class="font-bold text-[var(--primary-color)]">KES 1,000</p>
+            </div>
+            <div class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow">
+              <div class="w-10 h-10 bg-[var(--accent-color)] rounded-full flex items-center justify-center text-white">
+                <i class="fas fa-share"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold">New Ad Shared</p>
+                <p class="text-xs text-[var(--gray-text-color)]">Facebook • 3 hours ago</p>
+              </div>
+              <p class="text-xs text-[var(--gray-text-color)]">Link copied</p>
+            </div>
+            <div class="flex items-center space-x-4 p-4 bg-white rounded-lg shadow">
+              <div class="w-10 h-10 bg-[var(--accent3-color)] rounded-full flex items-center justify-center text-white">
+                <i class="fas fa-eye"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold">+35 views</p>
+                <p class="text-xs text-[var(--gray-text-color)]">Instagram Story • 5 hours ago</p>
+              </div>
+              <p class="font-bold text-[var(--accent3-color)]">+KES 350</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Share Ad Link -->
+  <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--light-bg)] to-white" id="share">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mb-6">
+          Share This Ad & Earn <span class="text-[var(--primary-color)]">KES 10 Per View</span>
+        </h2>
+        <div class="bg-white rounded-2xl p-8 shadow-2xl border border-[var(--light-border-color)]">
+          <div class="mb-6">
+            <img src="https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/sample-ad.jpg/public" alt="Sample Ad" class="w-full rounded-lg shadow-lg">
+          </div>
+          <div class="flex items-center justify-center space-x-4">
+            <input type="text" id="ad-link" value="https://viewcash.africa/ad/abc123" readonly class="flex-1 px-4 py-3 border border-[var(--light-border-color)] rounded-lg text-center font-mono text-sm">
+            <button onclick="copyLink()" class="bg-[var(--primary-color)] text-white px-6 py-3 rounded-lg hover:bg-[var(--primary-button-hover-bg)] transition-all font-bold">
+              <i class="fas fa-copy mr-2"></i> Copy Link
+            </button>
+          </div>
+          <p class="text-sm text-[var(--gray-text-color)] mt-4">
+            Share on WhatsApp, Facebook, Instagram, TikTok, or X. Earn <strong>KES 10 per verified Kenyan view</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Withdrawal Modal -->
+  <div id="withdrawal-modal" class="withdrawal-modal">
+    <div class="modal-card">
+      <div class="close" onclick="closeModal()">&times;</div>
+      <div class="w-20 h-20 bg-[var(--accent2-color)] rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
+        <i class="fab fa-safaricom text-white text-3xl"></i>
+      </div>
+      <h3 class="text-2xl font-bold mb-4">Withdraw to M-Pesa</h3>
+      <div class="bg-gray-100 rounded-lg p-4 mb-6 text-left text-sm">
+        <div class="flex justify-between mb-2"><span>Amount:</span> <strong class="text-[var(--accent2-color)]">KES 1,200</strong></div>
+        <div class="flex justify-between mb-2"><span>Phone:</span> <strong>+254712345678</strong></div>
+        <div class="flex justify-between"><span>Fee:</span> <strong>KES 0</strong></div>
+      </div>
+      <p class="text-sm text-[var(--gray-text-color)] mb-6">
+        Money will hit your M-Pesa in <strong>under 2 hours</strong>.
+      </p>
+      <button onclick="processWithdrawal()" class="bg-[var(--accent2-color)] text-white px-8 py-3 rounded-full font-bold hover:bg-[#059669] transition-all w-full">
+        Confirm Withdrawal
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--dark-bg)] text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-400 text-sm">
+        © 2025 ViewCash Africa. All rights reserved. Nairobi, Kenya.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu
+    document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Logout
+    function logout() {
+      alert('Logged out successfully!');
+      window.location.href = 'login.html';
+    }
+
+    // Withdrawal Modal
+    function openWithdrawal() {
+      document.getElementById('withdrawal-modal').classList.add('show');
+    }
+    function closeModal() {
+      document.getElementById('withdrawal-modal').classList.remove('show');
+    }
+    function processWithdrawal() {
+      alert('Withdrawal request sent! KES 1,200 will be sent to your M-Pesa shortly.');
+      closeModal();
+      setTimeout(() => {
+        alert('KES 1,200 has been sent to +254712345678 via M-Pesa!');
+      }, 2000);
+    }
+
+    // Copy Link
+    function copyLink() {
+      const link = document.getElementById('ad-link');
+      link.select();
+      document.execCommand('copy');
+      alert('Ad link copied! Share it now to earn KES 10 per view.');
+    }
+
+    // Simulate live updates
+    setInterval(() => {
+      const views = Math.floor(Math.random() * 50) + 10;
+      const earnings = views * 10;
+      alert(`+${views} new views! You earned KES ${earnings}!`);
+    }, 30000);
+  </script>
+</body>
+</html>
